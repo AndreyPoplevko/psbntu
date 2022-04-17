@@ -1,9 +1,9 @@
 footer {
-    position: absolute;
+    position: static;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 230px;
+    height: 330px;
     background: linear-gradient(60deg, white, rgb(67, 130, 213));
 }
 
@@ -22,10 +22,9 @@ hr {
 }
 
 #Dock {
-    position: absolute;
-    bottom: 118px;
-    left: 50%;
-    margin-left: -125px;
+    position: static;
+    margin: auto;
+    margin-top: 12px;
     background: rgba(255, 255, 255, 0.4);
     height: 60px;
     width: 250px;
@@ -61,11 +60,12 @@ hr {
 }
 
 #footer_text {
-    margin-top: 88px;
+    margin-top: 10px;
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 #c_text {
-    margin-top: 12px;
+    margin-top: 5px;
     font-size: 20px;
 }
