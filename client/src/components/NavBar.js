@@ -149,7 +149,7 @@ const NavBar = () => {
                                 <Link to='/good_to_know' className='header_link'>Полезно знать</Link>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Документы</Link>
+                                        <Link to='/documents' className='sub-header__link'>Документы</Link>
                                     </li>
                                     <li>
                                         <Link to='/' className='sub-header__link'>Материальная помощь</Link>
