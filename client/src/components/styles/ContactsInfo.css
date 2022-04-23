@@ -1,16 +1,10 @@
 footer {
-    position: absolute;
+    position: static;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 230px;
-    background: linear-gradient(60deg, white, rgb(67, 130, 213));
-}
-
-hr {
-    background-color: black;
-    height: 1px;
-    border: none;
+    height: 100px;
+    background: linear-gradient(60deg, #00c6fb, rgb(19, 55, 102));
 }
 
 #SocialNetworkInfo {
@@ -22,25 +16,29 @@ hr {
 }
 
 #Dock {
-    position: absolute;
-    bottom: 118px;
-    left: 50%;
-    margin-left: -125px;
+    display: none;
+}
+
+#footer_dock {
+    position: static;
+    top: 5px;
+    margin: auto;
     background: rgba(255, 255, 255, 0.4);
     height: 60px;
-    width: 250px;
+    width: 420px;
     border-radius: 15px;
+    z-index: 3;
 }
 
 .DockImgs {
     transition: 0.3s;
-    margin-top: 5px;
+    margin-top: 4.5px;
     width: 50px;
     height: 50px;
 }
 
 #VK_img {
-    margin-left: 0px;
+    margin-left: 5px;
 }
 
 #Inst_img {
@@ -56,16 +54,67 @@ hr {
     margin-left: 10px;
 }
 
+#EDU_img {
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#FPB_img {
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#FAQ_img {
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
 .DockImgs:hover {
     transform: scale(1.2);
 }
 
-#footer_text {
-    margin-top: 88px;
-    font-size: 20px;
-}
+@media (max-width: 1431px) {
+    #Dock {
+        display: block;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        background: rgba(255, 255, 255, 0.4);
+        height: 41px;
+        width: 322px;
+        border-radius: 10px;
+        z-index: 51;
+    }
 
-#c_text {
-    margin-top: 12px;
-    font-size: 20px;
+    .DockImgs {
+        transition: 0.3s;
+        margin-top: 3px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .DockImgs:hover {
+        transform: scale(1.2);
+    }
+
+    #VK_img {
+        margin-left: 5px;
+    }
+    
+    #Inst_img {
+        margin-left: 10px;
+    }
+    
+    #TG_img {
+        margin-left: 10px;
+    }
+    
+    #BNTU_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+
+    footer {
+        display: none;
+    }
 }

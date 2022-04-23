@@ -1,47 +1,168 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles/NavBar.css'
 import logo from "./images/logo.png"
+import arrow from "./images/arrow.png"
 
 const NavBar = () => {
+    const [className, setClassName] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    useEffect(() => {
+        document.body.classList.toggle('lock', isOpen);
+    }, [isOpen])
+
+    function set() {
+        setClassName(prev => !prev)
+        setIsOpen(!isOpen)
+    }
+
     return (
         <header>
-            <Link id='MainPageLink' to='/'><img id='BtnImg' src={logo} alt='logo'/></Link>
-            <nav>
-                <Link to='/about' id='about_link'>
-                    <button className='Links'>О нас</button>
-                    <div id='about_links'>
-                        <Link to='/about/information'><button className='about_btns'>Информация</button></Link>
-                        <Link to='/about/history'><button className='about_btns'>История</button></Link>
-                        <Link to='/about/structure'><button className='about_btns'>Структура</button></Link>
-                        <Link to='/about/projects'><button className='about_btns'>Проекты</button></Link>
-                        <Link to='/about/statute'><button className='about_btns'>Устав</button></Link>
-                        <Link to='/about/symbols'><button className='about_btns'>Символика</button></Link>
+            <div id="container">
+                <div id="header__body">
+                    <Link to='/'><img src={logo} id="header__logo" alt="img"/></Link>
+                    <div className={`header__burger ${className ? 'active' : ''}`} onClick={() => set()}>
+                        <span></span>
                     </div>
-                </Link>
-                <Link to='/news'><button className='Links'>Новости</button></Link>
-                <Link to='/for_member' id='for_member_link'>
-                    <button className='Links'>Члену профсоюза</button>
-                    <div id='for_member_links'>
-                        <Link to='/for_member/social_protection'><button className='for_member_btns'>Социальная защита</button></Link>
-                        <Link to='/for_member/material_help'><button className='for_member_btns'>Материальная помощь</button></Link>
-                        <Link to='/for_member/petitions'><button className='for_member_btns'>Ходатайства</button></Link>
-                        <Link to='/for_member/house_question'><button className='for_member_btns'>Вопрос с жильём</button></Link>
-                        <Link to='/for_member/seminars'><button className='for_member_btns'>Юридические и обучающие семинары</button></Link>
-                        <Link to='/for_member/vacancies'><button className='for_member_btns'>Актуальные вакансии</button></Link>
-                    </div>
-                </Link>
-                <Link to='/documents' id='documents_link'>
-                    <button className='Links'>Документы</button>
-                    <div id='documents_links'>
-                        <Link to='/documents/normative_acts'><button className='documents_btns'>Нормативные правовые акты Республики Беларусь</button></Link>
-                        <Link to='/documents/local_acts'><button className='documents_btns'>Локальные правовые акты ППО студентов БНТУ</button></Link>
-                    </div>
-                </Link>
-                <Link to='/galery'><button className='Links'>Галерея</button></Link>
-                <Link to='/contacts'><button className='Links'>Контакты</button></Link>
-            </nav>
+                    <nav className={`header__menu ${className ? 'active' : ''}`} onClick={() => set()}>
+                        <ul id="header__list">
+                            <li>
+                                <Link to='/about' className='header_link'>О нас</Link>
+                                <ul className='sub-header__list'>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Структура</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Проекты</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Социальная защита</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Участие в работе Советов и Комиссий</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Юридические и обучающие семинары</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Организация оздоровления</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Организация летнего отдыха</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Организация трудоустройства</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Организация и проведение мероприятий</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Обеспечение новогодними подарками</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Улучшение социально-экономического положения</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Предоставление скидок</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Предоставление мест проживания</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Профилакторий</Link>
+                                        <ul className='sub-sub-header__list'>
+                                            <li>
+                                                <Link to='/' className='sub-sub-header__link'>Структура</Link>
+                                            </li>
+                                            <li>
+                                                <Link to='/' className='sub-sub-header__link'>Основные направления</Link>
+                                            </li>
+                                            <li>
+                                                <Link to='/' className='sub-sub-header__link'>Награды</Link>
+                                            </li>
+                                            <li>
+                                                <Link to='/' className='sub-sub-header__link'>Устав</Link>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <Link to='/news' className='header_link'>Новости</Link>
+                            </li>
+                            <li>
+                                <Link to='/social_protection' className='header_link'>Соц. защита</Link>
+                                <ul className='sub-header__list'>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Соц. стипендия</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Вопрос с жильём</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Как получить место в общежитии</Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <Link to='/for_activists' className='header_link'>Хочу быть активистом</Link>
+                            </li>
+                            <li>
+                                <Link to='/for_applicant' className='header_link'>Абитуриенту</Link>
+                            </li>
+                            <li>
+                                <Link to='/recovery' className='header_link'>Оздоровление</Link>
+                                <ul className='sub-header__list'>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Санаторий-профилакторий</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Санатории ФПБ</Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <Link to='/events' className='header_link'>Мероприятия</Link>
+                            </li>
+                            <li>
+                                <Link to='/vacancies' className='header_link'>Вакансии</Link>
+                                <ul className='sub-header__list'>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Работодателям</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Отправить письмо</Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <Link to='/discount' className='header_link'>Дисконтная программа</Link>
+                            </li>
+                            <li>
+                                <Link to='/good_to_know' className='header_link'>Полезно знать</Link>
+                                <ul className='sub-header__list'>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Документы</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <Link to='/contacts' className='header_link'>Контакты</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </header>
     );
 };
