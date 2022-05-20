@@ -40,7 +40,7 @@ const ContactsInfo = () => {
                     <Link to='/FAQ'>
                         <img className='DockImgs' id='FAQ_img' src={FAQ_img} alt='FAQ_image'/>
                     </Link>
-            </div>
+                </div>
             </footer>
             <div id='Dock'>
                     <a href='https://vk.com/psbntu'>

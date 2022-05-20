@@ -73,7 +73,7 @@ footer {
     transform: scale(1.2);
 }
 
-@media (max-width: 1431px) {
+@media (max-width: 1436px) {
     #Dock {
         display: block;
         position: fixed;
@@ -112,6 +112,85 @@ footer {
     #BNTU_img {
         border-radius: 10px;
         margin-left: 10px;
+    }
+
+    #EDU_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+    
+    #FPB_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+    
+    #FAQ_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+@media (max-width: 451px) {
+    #Dock {
+        display: flex;
+        position: fixed;
+        overflow: auto;
+        top: 5px;
+        left: 5px;
+        background: rgba(255, 255, 255, 0.4);
+        height: 41px;
+        width: 185px;
+        border-radius: 10px;
+        z-index: 51;
+        overflow-y: hidden;
+    }
+
+    .DockImgs {
+        transition: 0.3s;
+        margin-top: 3px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .DockImgs:hover {
+        transform: scale(1.2);
+    }
+
+    #VK_img {
+        margin-left: 5px;
+    }
+    
+    #Inst_img {
+        margin-left: 10px;
+    }
+    
+    #TG_img {
+        margin-left: 10px;
+    }
+    
+    #BNTU_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+
+    #EDU_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+    
+    #FPB_img {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+    
+    #FAQ_img {
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 6px;
     }
 
     footer {

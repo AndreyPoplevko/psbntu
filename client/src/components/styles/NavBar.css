@@ -21,6 +21,7 @@ html, body {
     width: 80px;
     padding-right: 10px;
     z-index: 3;
+    transition: all 0.2s ease 0s;
 }
 
 header {
@@ -54,6 +55,7 @@ header::before {
     justify-content: center;
     height: 60px;
     align-items: center;
+    transition: all 0.2s ease 0s;
 }
 
 .header__burger {
@@ -67,30 +69,47 @@ header::before {
 }
 
 #header__list li {
+    position: relative;
     list-style: none;
 }
 
-.header_link {
+.header__link {
     color: white;
     letter-spacing: 0.8px;
     font-size: 14px;
     text-decoration: none;
-    padding: 25px 1vw;
+    padding: 22px 1vw;
+    padding-top: 24px;
+    transition: all 0.2s ease 0s;
 }
 
-#header__list li:hover .sub-header__list {
-    display: block;
+#header__list>li:hover >a{
+    background-color: rgb(120, 142, 181);
 }
 
 .sub-header__list {
+    min-width: 400px;
     display: none;
     position: absolute;
     top: 39px;
     left: 0;
     background-color: rgb(120, 142, 181);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: all 0.2s ease 0s;
+}
+
+.sub-header__list>li:hover {
+    border-radius: 15px;
+    background-color: rgb(229, 241, 252);
+}
+
+.sub-header__list>li:hover >a {
+    color: rgb(6, 7, 45);
 }
 
 .sub-header__list a {
+    width: 100%;
     color: white;
     letter-spacing: 0.8px;
     font-size: 18px;
@@ -102,17 +121,25 @@ header::before {
     padding: 10px 15px;
 }
 
-.sub-header__list li:hover .sub-sub-header__list {
-    display: block;
-}
-
 .sub-sub-header__list {
     display: none;
-    min-width: 200px;
+    min-width: 400px;
     position: absolute;
     top: 100%;
     left: 10%;
     background-color: rgb(120, 142, 181);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.sub-sub-header__list>li:hover {
+    border-radius: 15px;
+    background-color: rgb(229, 241, 252);
+}
+
+.sub-sub-header__list>li:hover >a {
+    color: rgb(6, 7, 45);
 }
 
 .sub-sub-header__link {
@@ -120,7 +147,19 @@ header::before {
     padding: 5px 10px;
 }
 
-@media (max-width: 1431px) {
+.header__arrow.arrow {
+    display: none;
+}
+
+body.mouse #header__list>li:hover .sub-header__list {
+    display: block;
+}
+
+body.mouse .sub-header__list>li:hover .sub-sub-header__list {
+    display: block;
+}
+
+@media (max-width: 1436px) {
     body.lock {
         overflow: hidden;
     }
@@ -209,6 +248,7 @@ header::before {
     }
 
     #header__list {
+        position: absolute;
         display: block;
     }
 
@@ -216,9 +256,95 @@ header::before {
         margin-bottom: 20px;
     }
 
-    .header_link {
+    .header__link {
         color: rgb(4, 22, 46);
         font-size: 24px;
         padding: 10px 10px 10px 10px;
+    }
+
+    .header__arrow.arrow {
+        display: inline-block;
+    }
+
+    .arrow {
+        width: 0;
+        height: 0;
+        border-top: 11px solid rgb(4, 22, 46);
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        margin-bottom: 2px;
+        transition: all 0.5s ease 0s;
+    }
+
+    .arrow.active {
+        width: 0;
+        height: 0;
+        margin-bottom: 2px;
+        transition: all 0.5s ease 0s;
+        transform: rotate(180deg);
+    }
+
+    .sub-header__list {
+        display: none;
+    }
+
+    #header__list>li .sub-header__list.open {
+        margin-top: -30px;
+        margin-bottom: 50px;
+        border-radius: 0px;
+        position: relative;
+        display: block;
+    }
+
+    #header__list>li .sub-header__list.open li {
+        margin-top: -15px;
+        margin-left: 20px;
+    }
+
+    #header__list>li .sub-header__list.open li a {
+        color: rgb(4, 22, 46);
+    }
+
+
+
+
+
+
+
+    #sub-sub-link {
+        width: 163px;
+    }
+
+    .sub-header__list>li:hover {
+        border-radius: 15px;
+        background-color: rgb(120, 142, 181);
+    }
+
+    .sub-header__link.parent {
+        background-color: rgb(120, 142, 181);
+        border-radius: 0px;
+    }
+
+    .sub-sub-header__list {
+        display: none;
+        background-color: rgb(120, 142, 181);
+        border-radius: 0px;
+    }
+
+    #header__list>li .sub-sub-header__list.open {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        border-radius: 0px;
+        position: relative;
+        display: block;
+    }
+
+    #header__list>li .sub-sub-header__list.open li {
+        margin-top: -15px;
+        margin-left: 30px;
+    }
+
+    #header__list>li .sub-sub-header__list.open li a {
+        color: rgb(4, 22, 46);
     }
 }

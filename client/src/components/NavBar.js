@@ -3,19 +3,94 @@ import { Link } from 'react-router-dom';
 
 import './styles/NavBar.css'
 import logo from "./images/logo.png"
-import arrow from "./images/arrow.png"
 
 const NavBar = () => {
-    const [className, setClassName] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
+    const [className, setClassName] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         document.body.classList.toggle('lock', isOpen);
-    }, [isOpen])
+    }, [isOpen]);
 
     function set() {
-        setClassName(prev => !prev)
-        setIsOpen(!isOpen)
-    }
+        setClassName(prev => !prev);
+        setIsOpen(!isOpen);
+    };
+
+    window.onscroll = function() {scroll()};
+
+    function scroll() {
+        if (window.screen.width > 1436) {
+            if (document.body.scrollTop > 190 || document.documentElement.scrollTop > 190) {
+                document.getElementById("header__body").style.height = "30px";
+                document.getElementById("header__logo").style.height = "30px";
+                document.getElementById("header__logo").style.width = "55px";
+                let menus_list = document.getElementsByClassName("sub-header__list");
+                for(let i=0; i<menus_list.length; i++) {
+                    menus_list[i].style.top = "24px";
+                }
+                let links_list = document.getElementsByClassName("header__link");
+                for(let i=0; i<links_list.length; i++) {
+                    links_list[i].style.paddingBottom = "7px";
+                }
+            } else {
+                document.getElementById("header__body").style.height = "60px";
+                document.getElementById("header__logo").style.height = "50px";
+                document.getElementById("header__logo").style.width = "85px";
+                let menus_list = document.getElementsByClassName("sub-header__list");
+                for(let i=0; i<menus_list.length; i++) {
+                    menus_list[i].style.top = "39px";
+                }
+                let links_list = document.getElementsByClassName("header__link");
+                for(let i=0; i<links_list.length; i++) {
+                    links_list[i].style.paddingBottom = "22px";
+                }
+            }
+        } else {
+            document.getElementById("header__body").style.height = "50px";
+            document.getElementById("header__logo").style.height = "40px";
+            document.getElementById("header__logo").style.width = "65px";
+        }
+    };
+
+    let isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function () {
+            return (
+                isMobile.Android()
+                || isMobile.BlackBerry()
+                || isMobile.iOS()
+                || isMobile.Opera()
+                || isMobile.Windows()
+            );
+        }
+    };
+
+    let body = document.querySelector('body');
+    if(isMobile.any()) {
+        body.classList.add('touch');
+
+        let arrows = document.querySelectorAll('.arrow');
+        for(let i=0; i<arrows.length; i++) {
+            let thisLink = arrows[i].previousElementSibling;
+            thisLink.classList.add('parent');
+        };
+    } else {
+        body.classList.add('mouse');
+    };
 
     return (
         <header>
@@ -25,139 +100,241 @@ const NavBar = () => {
                     <div className={`header__burger ${className ? 'active' : ''}`} onClick={() => set()}>
                         <span></span>
                     </div>
-                    <nav className={`header__menu ${className ? 'active' : ''}`} onClick={() => set()}>
+                    <nav className={`header__menu ${className ? 'active' : ''}`}>
                         <ul id="header__list">
                             <li>
-                                <Link to='/about' className='header_link'>О нас</Link>
+                                <Link to='/about' className='header__link'>О нас</Link>
+                                <span className='header__arrow arrow' onClick={
+                                    function(e) {
+                                        let subMenu = e.target.nextElementSibling;
+                                        subMenu.classList.toggle('open');
+                                        e.target.classList.toggle('active');
+                                        let arrows = document.querySelectorAll('.arrow');
+                                        let subMenus = document.querySelectorAll('.sub-header__list');
+                                        arrows[1].classList.remove('active');
+                                        arrows[2].classList.remove('active');
+                                        arrows[3].classList.remove('active');
+                                        arrows[4].classList.remove('active');
+                                        arrows[5].classList.remove('active');
+                                        subMenus[1].classList.remove('open');
+                                        subMenus[2].classList.remove('open');
+                                        subMenus[3].classList.remove('open');
+                                        subMenus[4].classList.remove('open');
+                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
+                                    }
+                                }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Структура</Link>
+                                        <Link to='/about/structure' className='sub-header__link'>Структура</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Проекты</Link>
+                                        <Link to='/about/projects' className='sub-header__link'>Проекты</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Социальная защита</Link>
+                                        <Link to='/about/social_protection' className='sub-header__link'>Социальная защита</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Участие в работе Советов и Комиссий</Link>
+                                        <Link to='/about/work_in_commisions' className='sub-header__link'>Участие в работе Советов и Комиссий</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                        <Link to='/about/material_help' className='sub-header__link'>Материальная помощь</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Юридические и обучающие семинары</Link>
+                                        <Link to='/about/seminars' className='sub-header__link'>Юридические и обучающие семинары</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Организация оздоровления</Link>
+                                        <Link to='/about/recovery' className='sub-header__link'>Организация оздоровления</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Организация летнего отдыха</Link>
+                                        <Link to='/about/summer_holidays' className='sub-header__link'>Организация летнего отдыха</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Организация трудоустройства</Link>
+                                        <Link to='/about/employment' className='sub-header__link'>Организация трудоустройства</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Организация и проведение мероприятий</Link>
+                                        <Link to='/about/events_organization' className='sub-header__link'>Организация и проведение мероприятий</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Обеспечение новогодними подарками</Link>
+                                        <Link to='/about/new_year_gifts' className='sub-header__link'>Обеспечение новогодними подарками</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Улучшение социально-экономического положения</Link>
+                                        <Link to='/about/improve_soc-eco_situation' className='sub-header__link'>Улучшение социально-экономического положения</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Предоставление скидок</Link>
+                                        <Link to='/about/sales' className='sub-header__link'>Предоставление скидок</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Предоставление мест проживания</Link>
+                                        <Link to='/about/accomodation' className='sub-header__link'>Предоставление мест проживания</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Профилакторий</Link>
+                                        <Link to='/about/profilak' className='sub-header__link' id='sub-sub-link'>Профилакторий</Link>
+                                        <span className='header__arrow arrow' onClick={
+                                            function(e) {
+                                                let subSubMenu = e.target.nextElementSibling;
+                                                subSubMenu.classList.toggle('open');
+                                                e.target.classList.toggle('active');
+                                            }
+                                        }></span>
                                         <ul className='sub-sub-header__list'>
                                             <li>
-                                                <Link to='/' className='sub-sub-header__link'>Структура</Link>
+                                                <Link to='/about/profilak/structure' className='sub-sub-header__link'>Структура</Link>
                                             </li>
                                             <li>
-                                                <Link to='/' className='sub-sub-header__link'>Основные направления</Link>
+                                                <Link to='/about/profilak/main_directions' className='sub-sub-header__link'>Основные направления</Link>
                                             </li>
                                             <li>
-                                                <Link to='/' className='sub-sub-header__link'>Награды</Link>
+                                                <Link to='/about/profilak/awards' className='sub-sub-header__link'>Награды</Link>
                                             </li>
                                             <li>
-                                                <Link to='/' className='sub-sub-header__link'>Устав</Link>
+                                                <Link to='/about/profilak/charter' className='sub-sub-header__link'>Устав</Link>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <Link to='/news' className='header_link'>Новости</Link>
+                                <Link to='/news' className='header__link'>Новости</Link>
                             </li>
                             <li>
-                                <Link to='/social_protection' className='header_link'>Соц. защита</Link>
+                                <Link to='/social_protection' className='header__link'>Соц. защита</Link>
+                                <span className='header__arrow arrow' onClick={
+                                    function(e) {
+                                        let subMenu = e.target.nextElementSibling;
+                                        subMenu.classList.toggle('open');
+                                        e.target.classList.toggle('active');
+                                        let arrows = document.querySelectorAll('.arrow');
+                                        let subMenus = document.querySelectorAll('.sub-header__list');
+                                        arrows[0].classList.remove('active');
+                                        arrows[1].classList.remove('active');
+                                        arrows[3].classList.remove('active');
+                                        arrows[4].classList.remove('active');
+                                        arrows[5].classList.remove('active');
+                                        subMenus[0].classList.remove('open');
+                                        subMenus[2].classList.remove('open');
+                                        subMenus[3].classList.remove('open');
+                                        subMenus[4].classList.remove('open');
+                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
+                                    }
+                                }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Соц. стипендия</Link>
+                                        <Link to='/social_protection/social_scholarship' className='sub-header__link'>Соц. стипендия</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Вопрос с жильём</Link>
+                                        <Link to='/social_protection/accomodation' className='sub-header__link'>Вопрос с жильём</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                        <Link to='/social_protection/material_help' className='sub-header__link'>Материальная помощь</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Как получить место в общежитии</Link>
+                                        <Link to='/social_protection/how_to_get_room' className='sub-header__link'>Как получить место в общежитии</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <Link to='/for_activists' className='header_link'>Хочу быть активистом</Link>
+                                <Link to='/for_activists' className='header__link'>Хочу быть активистом</Link>
                             </li>
                             <li>
-                                <Link to='/for_applicant' className='header_link'>Абитуриенту</Link>
+                                <Link to='/for_applicant' className='header__link'>Абитуриенту</Link>
                             </li>
                             <li>
-                                <Link to='/recovery' className='header_link'>Оздоровление</Link>
+                                <Link to='/recovery' className='header__link'>Оздоровление</Link>
+                                <span className='header__arrow arrow' onClick={
+                                    function(e) {
+                                        let subMenu = e.target.nextElementSibling;
+                                        subMenu.classList.toggle('open');
+                                        e.target.classList.toggle('active');
+                                        let arrows = document.querySelectorAll('.arrow');
+                                        let subMenus = document.querySelectorAll('.sub-header__list');
+                                        arrows[0].classList.remove('active');
+                                        arrows[1].classList.remove('active');
+                                        arrows[2].classList.remove('active');
+                                        arrows[4].classList.remove('active');
+                                        arrows[5].classList.remove('active');
+                                        subMenus[0].classList.remove('open');
+                                        subMenus[1].classList.remove('open');
+                                        subMenus[3].classList.remove('open');
+                                        subMenus[4].classList.remove('open');
+                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
+                                    }
+                                }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Санаторий-профилакторий</Link>
+                                        <Link to='/recovery/profilak' className='sub-header__link'>Санаторий-профилакторий</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Санатории ФПБ</Link>
+                                        <Link to='/recovery/FPB_sanatoriums' className='sub-header__link'>Санатории ФПБ</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <Link to='/events' className='header_link'>Мероприятия</Link>
+                                <Link to='/events' className='header__link'>Мероприятия</Link>
                             </li>
                             <li>
-                                <Link to='/vacancies' className='header_link'>Вакансии</Link>
+                                <Link to='/vacancies' className='header__link'>Вакансии</Link>
+                                <span className='header__arrow arrow' onClick={
+                                    function(e) {
+                                        let subMenu = e.target.nextElementSibling;
+                                        subMenu.classList.toggle('open');
+                                        e.target.classList.toggle('active');
+                                        let arrows = document.querySelectorAll('.arrow');
+                                        let subMenus = document.querySelectorAll('.sub-header__list');
+                                        arrows[0].classList.remove('active');
+                                        arrows[1].classList.remove('active');
+                                        arrows[2].classList.remove('active');
+                                        arrows[3].classList.remove('active');
+                                        arrows[5].classList.remove('active');
+                                        subMenus[0].classList.remove('open');
+                                        subMenus[1].classList.remove('open');
+                                        subMenus[2].classList.remove('open');
+                                        subMenus[4].classList.remove('open');
+                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
+                                    }
+                                }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Работодателям</Link>
+                                        <Link to='/vacancies/for_employers' className='sub-header__link'>Работодателям</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Отправить письмо</Link>
+                                        <Link to='/vacancies/send_message' className='sub-header__link'>Отправить письмо</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <Link to='/discount' className='header_link'>Дисконтная программа</Link>
+                                <Link to='/discount' className='header__link'>Дисконтная программа</Link>
                             </li>
                             <li>
-                                <Link to='/good_to_know' className='header_link'>Полезно знать</Link>
+                                <Link to='/good_to_know' className='header__link'>Полезно знать</Link>
+                                <span className='header__arrow arrow' onClick={
+                                    function(e) {
+                                        let subMenu = e.target.nextElementSibling;
+                                        subMenu.classList.toggle('open');
+                                        e.target.classList.toggle('active');
+                                        let arrows = document.querySelectorAll('.arrow');
+                                        let subMenus = document.querySelectorAll('.sub-header__list');
+                                        arrows[0].classList.remove('active');
+                                        arrows[1].classList.remove('active');
+                                        arrows[2].classList.remove('active');
+                                        arrows[3].classList.remove('active');
+                                        arrows[4].classList.remove('active');
+                                        subMenus[0].classList.remove('open');
+                                        subMenus[1].classList.remove('open');
+                                        subMenus[2].classList.remove('open');
+                                        subMenus[3].classList.remove('open');
+                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
+                                    }
+                                }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/documents' className='sub-header__link'>Документы</Link>
+                                        <Link to='/good_to_know/documents' className='sub-header__link'>Документы</Link>
                                     </li>
                                     <li>
-                                        <Link to='/' className='sub-header__link'>Материальная помощь</Link>
+                                        <Link to='/good_to_know/material_help' className='sub-header__link'>Материальная помощь</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <Link to='/contacts' className='header_link'>Контакты</Link>
+                                <Link to='/contacts' className='header__link'>Контакты</Link>
                             </li>
                         </ul>
                     </nav>
