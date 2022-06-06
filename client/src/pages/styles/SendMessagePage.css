@@ -1,6 +1,6 @@
 #SendMessagePageBody {
     background-color: #9bd4ff;
-    height: calc(100vh - 100px);
+    height: 100vh;
     width: 100%;
     text-align: center;
 }

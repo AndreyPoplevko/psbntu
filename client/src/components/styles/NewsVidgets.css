@@ -3,7 +3,6 @@
     background-color: rgb(255, 255, 255);
     overflow-y: hidden;
     height: 280px;
-    margin-bottom: 20px;
 }
 
 #VidgetsBody::-webkit-scrollbar {

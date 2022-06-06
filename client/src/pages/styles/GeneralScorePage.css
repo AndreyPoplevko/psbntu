@@ -1,0 +1,26 @@
+#GeneralScoreBody {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(60deg, #00b4fb, rgb(7, 34, 70));
+}
+
+#GeneralScoreTable {
+    margin-top: 100px;
+    margin-left: 300px;
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#GeneralScoreTable th {
+    border: 1px solid black;
+}
+
+#GeneralScoreTable td {
+    border: 1px solid black;
+}

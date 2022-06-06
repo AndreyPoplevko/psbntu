@@ -14,10 +14,6 @@ const ContactsInfo = () => {
     return (
         <div>
             <footer>
-                <div id='SocialNetworkInfo'>
-                    <div id='SN_Text'><b>Полезные ссылки:</b></div>
-                    <hr/>
-                </div>
                 <div id='footer_dock'>
                     <a href='https://vk.com/psbntu'>
                         <img className='DockImgs' id='VK_img' src={VK_img} alt='VK_image'/>
