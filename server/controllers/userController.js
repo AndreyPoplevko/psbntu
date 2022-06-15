@@ -34,7 +34,7 @@ class UserController {
         return res.json(user);
     };
 
-    async getInfo(req, res) {
+    async check(req, res) {
         //const user = await User.findOne({ where: {id: 295433957}});
         //return res.json('user');
         const query = req.query;
