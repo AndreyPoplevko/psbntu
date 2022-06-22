@@ -1,17 +1,14 @@
 import AboutPage from "./pages/AboutPage";
+import AuthPage from "./pages/AuthPage";
 import ContactsPage from './pages/ContactsPage';
 import GeneralScorePage from './pages/GeneralScorePage';
 import MainPage from './pages/MainPage';
 import NewsPage from './pages/NewsPage';
 import ProfilePage from './pages/ProfilePage';
 import SendMessagePage from './pages/SendMessagePage';
-import { AboutRoute, ContactsRoute, GeneralScoreRoute, MainRoute, NewsRoute, ProfileRoute, SendMessageRoute } from "./utils/consts";
+import { AboutRoute, AuthRoute, ContactsRoute, GeneralScoreRoute, MainRoute, NewsRoute, ProfileRoute, SendMessageRoute } from "./utils/consts";
 
 export const authRoutes = [
-    {
-        path: AboutRoute,
-        Component: <AboutPage/>
-    },
     {
         path: GeneralScoreRoute,
         Component: <GeneralScorePage/>
@@ -23,6 +20,14 @@ export const authRoutes = [
 ];
 
 export const publicRoutes = [
+    {
+        path: AuthRoute,
+        Component: <AuthPage/>
+    },
+    {
+        path: AboutRoute,
+        Component: <AboutPage/>
+    },
     {
         path: ContactsRoute,
         Component: <ContactsPage/>

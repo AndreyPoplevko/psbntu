@@ -13,7 +13,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
             <div className='News_Vidgets'>
                 <Link to='/'>
@@ -21,7 +21,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
             <div className='News_Vidgets'>
                 <Link to='/'>
@@ -29,7 +29,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
             <div className='News_Vidgets'>
                 <Link to='/'>
@@ -37,7 +37,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
             <div className='News_Vidgets'>
                 <Link to='/'>
@@ -45,7 +45,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
             <div className='News_Vidgets'>
                 <Link to='/'>
@@ -53,7 +53,7 @@ const NewsVidgets = () => {
                         <img src={news_img} className='News_Vidgets__img' alt="img"/>
                     </div>
                 </Link>
-                <span className='News_Vidgets__text'>Цеховая (первичная) профсоюзная организация...</span>
+                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
             </div>
         </div>
     );

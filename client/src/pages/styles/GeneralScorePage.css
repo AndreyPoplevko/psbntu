@@ -2,25 +2,61 @@
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
     right: 0;
     background: linear-gradient(60deg, #00b4fb, rgb(7, 34, 70));
 }
 
-#GeneralScoreTable {
-    margin-top: 100px;
-    margin-left: 300px;
-    width: 500px;
-    background-color: white;
-    border-radius: 5px;
-    border-collapse: collapse;
+table {
+    width: 700px;
+    height: 70vh;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+    margin-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+}
+th {
+    background: rgb(19, 55, 102);
+    color: white;
+    text-shadow: 0 1px 1px #2D2020;
+    padding: 10px 20px;
+}
+th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: rgb(0, 0, 0);
+}
+
+th:first-child, td:first-child {
     text-align: center;
 }
 
-#GeneralScoreTable th {
-    border: 1px solid black;
+th:first-child {
+    border-top-left-radius: 10px;
 }
 
-#GeneralScoreTable td {
-    border: 1px solid black;
+th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+
+td {
+    padding: 10px;
+    background: #ffffff;
+}
+
+tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+tr td:last-child {
+    border-right: none;
 }

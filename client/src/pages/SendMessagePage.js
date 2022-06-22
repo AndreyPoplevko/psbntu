@@ -1,13 +1,11 @@
 import React from 'react';
 import ContactsInfo from '../components/ContactsInfo';
-import NavBar from '../components/NavBar';
 
 import './styles/SendMessagePage.css'
 
 const SendMessagePage = () => {
     return (
         <div>
-            <NavBar/>
             <div id='SendMessagePageBody'>
                 <form action='' className='ui-form'>
                     <h3><b>Недостаточно информации? Отправьте нам письмо!</b></h3>

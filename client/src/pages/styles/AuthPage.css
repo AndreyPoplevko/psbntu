@@ -1,23 +1,41 @@
-#SendMessagePageBody {
-    background-color: #9bd4ff;
+#auth-info {
+    width: 70%;
+    position: absolute;
+    left: 0;
     height: 100vh;
-    width: 100%;
+    background: url("../images/AuthBackground.jpg") no-repeat;
+    background-size: cover;
     text-align: center;
 }
 
-.ui-form {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    max-width: 500px;
-    padding: 30px 30px 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -250px;
+#auth-info p {
+    letter-spacing: 2px;
+    font-weight: bold;
+    line-height: 40px;
+    max-width: inherit;
+    color: rgb(0, 0, 0);
+    font-size: 34px;
+    margin-top: 300px;
+    animation: showBottom 1s;
 }
 
-.ui-form h3 {
+@keyframes showBottom {
+    from {margin-top: 1000px;}
+    to {margin-top: 300px;}
+}
+
+.auth-form {
+    background-color: rgb(255, 255, 255);
+    padding: 30px 30px 30px;
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    margin-top: -25vh;
+    right: 0;
+    bottom: 0;
+}
+
+.auth-form h3 {
     position: relative;
     z-index: 5;
     margin: 0 0 60px;
@@ -27,12 +45,12 @@
     font-weight: normal;
 }
 
- .form-row {
+ .auth-form-row {
     position: relative;
     margin-bottom: 40px;
 }
 
-.form-row input {
+.auth-form-row input {
     display: block;
     width: 100%;
     padding: 0 10px;
@@ -44,7 +62,7 @@
     transition: all 0.2s ease;
 }
 
-.form-row label {
+.auth-form-row label {
     position: absolute;
     left: 13px;
     color: #9d959d;
@@ -54,12 +72,12 @@
     transition: all 0.2s ease;
 }
 
-.form-row input:focus {
+.auth-form-row input:focus {
     outline: 0;
     border-color: #F77A52;
 }
 
-.form-row input:focus+label, .form-row input:valid+label {
+.auth-form-row input:focus+label, .auth-form-row input:valid+label {
     transform: translateY(-60px);
     margin-left: -14px;
     font-size: 14px;
@@ -69,7 +87,7 @@
     color: #F77A52;
 }
 
-.ui-form input[type="submit"] {
+.auth-form input[type="submit"] {
     width: 100%;
     padding: 0;
     line-height: 42px;
@@ -81,11 +99,33 @@
     cursor: pointer;
 }
 
-.ui-form input[type="submit"]:hover {
+.auth-form input[type="submit"]:hover {
     opacity: 0.8;
 }
 
-.ui-form p {
+.auth-form p {
     margin: 0;
     padding-top: 10px;
+}
+
+@media (max-width: 1436px) {
+    #auth-info {
+        display: none;
+    }
+
+    #AuthPageBody {
+        width: 100vh;
+    }
+
+    .auth-form {
+        background-color: rgb(255, 255, 255);
+        padding: 30px 30px 30px;
+        position: absolute;
+        width: 50vh;
+        top: 50%;
+        margin-top: -25vh;
+        right: 50%;
+        margin-right: -25vh;
+        bottom: 0;
+    }
 }

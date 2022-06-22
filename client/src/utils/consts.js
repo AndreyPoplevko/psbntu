@@ -5,3 +5,4 @@ export const ContactsRoute = "/contacts";
 export const SendMessageRoute = "/vacancies/send_message";
 export const ProfileRoute = "/profile";
 export const GeneralScoreRoute = "/general_score";
+export const AuthRoute = "/auth";
