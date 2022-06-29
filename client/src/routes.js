@@ -6,7 +6,7 @@ import MainPage from './pages/MainPage';
 import NewsPage from './pages/NewsPage';
 import ProfilePage from './pages/ProfilePage';
 import SendMessagePage from './pages/SendMessagePage';
-import { AboutRoute, AuthRoute, ContactsRoute, GeneralScoreRoute, MainRoute, NewsRoute, ProfileRoute, SendMessageRoute } from "./utils/consts";
+import { AboutRoute, AuthRoute, ContactsRoute, GeneralScoreRoute, MainRoute, NewsRoute, ProfileRoute, RegistrationRoute, SendMessageRoute } from "./utils/consts";
 
 export const authRoutes = [
     {
@@ -16,12 +16,44 @@ export const authRoutes = [
     {
         path: ProfileRoute,
         Component: <ProfilePage/>
+    },
+    {
+        path: AuthRoute,
+        Component: <AuthPage/>
+    },
+    {
+        path: RegistrationRoute,
+        Component: <AuthPage/>
+    },
+    {
+        path: AboutRoute,
+        Component: <AboutPage/>
+    },
+    {
+        path: ContactsRoute,
+        Component: <ContactsPage/>
+    },
+    {
+        path: MainRoute,
+        Component: <MainPage/>
+    },
+    {
+        path: NewsRoute,
+        Component: <NewsPage/>
+    },
+    {
+        path: SendMessageRoute,
+        Component: <SendMessagePage/>
     }
 ];
 
 export const publicRoutes = [
     {
         path: AuthRoute,
+        Component: <AuthPage/>
+    },
+    {
+        path: RegistrationRoute,
         Component: <AuthPage/>
     },
     {

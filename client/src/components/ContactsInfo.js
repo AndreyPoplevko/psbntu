@@ -4,7 +4,6 @@ import { Context } from '../index.js';
 
 import './styles/ContactsInfo.css'
 import Login_img from './images/login.png'
-import Exit_img from './images/exit.png'
 import VK_img from './images/VK_img.png'
 import Inst_img from './images/Inst_img.png'
 import TG_img from './images/TG_img.png'
@@ -20,7 +19,7 @@ const ContactsInfo = () => {
     return (
         <div>
             <footer>
-                {user.isAuth ?
+                {user._isAuth ?
                     <div id='footer_dock'>
                         <Link to='/profile'>
                             <img className='DockImgs' id='Login_img' src={Avatar_img} alt='Login_image'/>
