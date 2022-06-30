@@ -7,8 +7,8 @@ const generateAuthJwt = (id, name, сategories, score, role) => {
     return jwt.sign({id, name, сategories, score, role}, process.env.SECRET_KEY, {expiresIn: '24h'})
 }
 
-const generateLoginJwt = (id, role) => {
-    return jwt.sign({id, role}, process.env.SECRET_KEY, {expiresIn: '24h'})
+const generateLoginJwt = (id, name, сategories, score, role) => {
+    return jwt.sign({id, name, сategories, score, role}, process.env.SECRET_KEY, {expiresIn: '24h'})
 }
 
 class UserController {
@@ -29,7 +29,7 @@ class UserController {
     };
 
     async login(req, res, next) {
-        const {id, password, role} = req.body;
+        const {id, password} = req.body;
         if(!id || !password) {
             return next(ApiError.badRequest('Данные в одном из полей отсутствуют!'))
         };
@@ -41,7 +41,8 @@ class UserController {
         if (!comparePassword) {
             return next(ApiError.internal('Указан неверный пароль!'))
         }
-        const token = generateLoginJwt(id, role);
+        console.log(user)
+        const token = generateLoginJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
         return res.json({token});
     };
 
