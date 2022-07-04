@@ -6,7 +6,9 @@ const checkRole = require('../middleware/checkRoleMiddleware.js');
 
 router.post('/register', userController.register);
 router.post('/login', userController.login);
-router.get('/auth', authMiddleware, userController.check);
+//router.get('/auth', authMiddleware, userController.check);
 router.post('/giveScore', checkRole('Администратор'), userController.giveScore);
+router.post('/updateUser', userController.updateUser);
+router.get('/generalUsersScore', userController.generalUsersScore);
 
 module.exports = router;

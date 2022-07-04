@@ -46,10 +46,10 @@ class UserController {
         return res.json({token});
     };
 
-    async check(req, res, next) {
-        const token = generateAuthJwt(req.user.id, req.user.name, req.user.categories, req.user.score, req.user.role);
-        return res.json({token});
-    };
+    //async check(req, res, next) {
+    //    const token = generateAuthJwt(req.user.id, req.user.name, req.user.categories, req.user.score, req.user.role);
+    //    return res.json({token});
+    //};
 
     async giveScore(req, res, next) {
         const {id, updatedScore} = req.body;
@@ -63,6 +63,18 @@ class UserController {
         await User.update({score: user.score += updatedScore}, {where: {id}})
         return res.json({user})
     };
+    
+    async updateUser(req, res, next) {
+        const {id} = req.body
+        const user = await User.findOne({where: {id}});
+        const token = generateAuthJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
+        return res.json({token});
+    }
+
+    async generalUsersScore(req, res, next) {
+        const usersScore = await User.findAll();
+        return res.json(usersScore);
+    }
 };
 
 module.exports = new UserController();
