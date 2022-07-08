@@ -5,6 +5,7 @@ import { Context } from './index.js';
 import { updateUser } from './http/userAPI.js';
 import AppRouter from './components/AppRouter';
 import NavBar from './components/NavBar';
+import Loader from './components/Loader.js';
 
 const App = observer(() => {
     const {user} = useContext(Context)
@@ -18,7 +19,7 @@ const App = observer(() => {
     }, [])
 
     if (loading) {
-        return <div>Loading...</div>
+        return <Loader/>
     }
     return (
         <Router>

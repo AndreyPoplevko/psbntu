@@ -71,3 +71,57 @@
     font-size: 26px;
     color: rgb(12, 12, 82);
 }
+
+@media (max-width: 1436px) {
+    #profile {
+        margin-top: -23%;
+        margin-left: -48%;
+        height: 46%;
+        width: 96%;
+    }
+}
+
+@media (max-width: 640px) {
+    #ProfileBody {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(60deg, #00b4fb, rgb(7, 34, 70));
+    }
+
+    #profile {
+        margin-top: -45%;
+        margin-left: -45%;
+        height: 70%;
+        width: 90%;
+    }
+    
+    #profile_info {
+        top: 200px;
+        left: 30px;
+        height: 38%;
+        width: inherit;
+    }
+    
+    .profile_titles {
+        margin-left: 0px;
+    }
+    
+    #general_score_btn {
+        margin-top: 430px;
+        width: 94%;
+    }
+    
+    #general_score_btn a{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 515px) {
+    #profile {
+        margin-top: -55%;
+        height: 70%;
+    }
+}

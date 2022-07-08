@@ -16,6 +16,10 @@ import Avatar_img from '../pages/images/Avatar_img.jpg'
 
 const ContactsInfo = () => {
     const {user} = useContext(Context)
+    function closeApps() {
+        document.getElementsByClassName('Dock')[0].classList.remove('active')
+        document.getElementsByClassName('header__apps')[0].classList.remove('active')
+    }
     return (
         <div>
             <footer>
@@ -75,7 +79,11 @@ const ContactsInfo = () => {
                     </div>
                 }
             </footer>
-            <div id='Dock'>
+            {user._isAuth ?
+                <div className='Dock'>
+                    <Link to='/profile' onClick={() => closeApps()}>
+                        <img className='DockImgs' id='Login_img' src={Avatar_img} alt='Login_image'/>
+                    </Link>
                     <a href='https://vk.com/psbntu'>
                         <img className='DockImgs' id='VK_img' src={VK_img} alt='VK_image'/>
                     </a>
@@ -94,10 +102,38 @@ const ContactsInfo = () => {
                     <a href='https://fpb.1prof.by'>
                         <img className='DockImgs' id='FPB_img' src={FPB_img} alt='FPB_image'/>
                     </a>
-                    <a href='https://bntu.by'>
+                    <Link to='/FAQ'>
                         <img className='DockImgs' id='FAQ_img' src={FAQ_img} alt='FAQ_image'/>
+                    </Link>
+                </div>
+            :
+                <div className='Dock'>
+                    <Link to='/auth'>
+                        <img className='DockImgs' id='Login_img' src={Login_img} alt='Login_image'/>
+                    </Link>
+                    <a href='https://vk.com/psbntu'>
+                        <img className='DockImgs' id='VK_img' src={VK_img} alt='VK_image'/>
                     </a>
-            </div>
+                    <a href='https://www.instagram.com/psbntu/'>
+                        <img className='DockImgs' id='Inst_img' src={Inst_img} alt='Inst_image'/>
+                    </a>
+                    <a href='https://t.me/psbntuby'>
+                        <img className='DockImgs' id='TG_img' src={TG_img} alt='TG_image'/>
+                    </a>
+                    <a href='https://bntu.by'>
+                        <img className='DockImgs' id='BNTU_img' src={BNTU_img} alt='BNTU_image'/>
+                    </a>
+                    <a href='https://estu.1prof.by'>
+                        <img className='DockImgs' id='EDU_img' src={EDU_img} alt='EDU_image'/>
+                    </a>
+                    <a href='https://fpb.1prof.by'>
+                        <img className='DockImgs' id='FPB_img' src={FPB_img} alt='FPB_image'/>
+                    </a>
+                    <Link to='/FAQ'>
+                        <img className='DockImgs' id='FAQ_img' src={FAQ_img} alt='FAQ_image'/>
+                    </Link>
+                </div>
+            }
         </div>
     );
 };

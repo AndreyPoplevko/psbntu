@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles/NavBar.css'
-import logo from "./images/logo.png"
+import './styles/NavBar.css';
+import logo from "./images/logo.png";
 
 const NavBar = () => {
     const [className, setClassName] = useState(false);
+    const [classNameApp, setClassNameApp] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         document.body.classList.toggle('lock', isOpen);
@@ -14,6 +15,17 @@ const NavBar = () => {
     function set() {
         setClassName(prev => !prev);
         setIsOpen(!isOpen);
+    };
+
+    function setApp() {
+        const Apps = document.getElementsByClassName('Dock')[0]
+        if (classNameApp) {
+            Apps.classList.remove('active')
+            setClassNameApp(false);
+        } else {
+            Apps.classList.add('active')
+            setClassNameApp(true);
+        }
     };
 
     window.onscroll = function() {scroll()};
@@ -97,6 +109,14 @@ const NavBar = () => {
             <div id="container">
                 <div id="header__body">
                     <Link to='/'><img src={logo} id="header__logo" alt="img"/></Link>
+                    <div className={`header__apps ${classNameApp ? 'active' : ''}`} onClick={() => setApp()}>
+                        <div class="AppsLogo">
+                            <div class="squares" id='squares1'></div>
+                            <div class="squares" id='squares2'></div>
+                            <div class="squares" id='squares3'></div>
+                            <div class="squares" id='squares4'></div>
+                        </div>
+                    </div>
                     <div className={`header__burger ${className ? 'active' : ''}`} onClick={() => set()}>
                         <span></span>
                     </div>

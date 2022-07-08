@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import ContactsInfo from '../components/ContactsInfo'; 
+import Loader from '../components/Loader';
 import { generalUsersScore } from '../http/userAPI'; 
  
 import './styles/GeneralScorePage.css' 
@@ -23,7 +24,7 @@ const GeneralScorePage = () => {
     }).finally(() => setLoading(false))
   }, [])
   if (loading) {
-    return <div>Loading...</div>
+    return <Loader/>
   }
   return ( 
       <div>

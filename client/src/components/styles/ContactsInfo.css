@@ -6,7 +6,7 @@ footer {
     height: 200px;
 }
 
-#Dock {
+.Dock {
     display: none;
 }
 
@@ -78,59 +78,85 @@ footer:hover #footer_dock {
 }
 
 @media (max-width: 1436px) {
-    #Dock {
+    .Dock {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: 50px;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 49;
+        text-align: center;
+    }
+
+    .Dock.active {
         display: block;
-        position: fixed;
-        top: 5px;
-        left: 5px;
-        background: rgba(255, 255, 255, 0.4);
-        height: 41px;
-        width: 322px;
-        border-radius: 10px;
-        z-index: 51;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: 50px;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 49;
+        text-align: center;
     }
 
     .DockImgs {
         transition: 0.3s;
-        margin-top: 3px;
-        width: 36px;
-        height: 36px;
+        margin-top: 40px;
+        width: 100px;
+        height: 100px;
     }
 
     .DockImgs:hover {
         transform: scale(1.2);
     }
 
+    #Login_img {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
     #VK_img {
-        margin-left: 5px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #Inst_img {
-        margin-left: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #TG_img {
-        margin-left: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #BNTU_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     #EDU_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #FPB_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #FAQ_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     footer {
@@ -139,62 +165,85 @@ footer:hover #footer_dock {
 }
 
 @media (max-width: 451px) {
-    #Dock {
-        display: flex;
-        position: fixed;
-        overflow: auto;
-        top: 5px;
-        left: 5px;
-        background: rgba(255, 255, 255, 0.4);
-        height: 41px;
-        width: 185px;
-        border-radius: 10px;
-        z-index: 51;
-        overflow-y: hidden;
+    .Dock {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: 50px;
+        height: 0%;
+        width: 0%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 49;
+        text-align: center;
+    }
+
+    .Dock.active {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-top: 50px;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 49;
+        text-align: center;
     }
 
     .DockImgs {
         transition: 0.3s;
-        margin-top: 3px;
-        width: 36px;
-        height: 36px;
+        margin-top: 40px;
+        width: 100px;
+        height: 100px;
     }
 
     .DockImgs:hover {
         transform: scale(1.2);
     }
 
+    #Login_img {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
     #VK_img {
-        margin-left: 5px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #Inst_img {
-        margin-left: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #TG_img {
-        margin-left: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #BNTU_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     #EDU_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #FPB_img {
-        border-radius: 10px;
-        margin-left: 10px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
     
     #FAQ_img {
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-right: 6px;
+        border-radius: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     footer {

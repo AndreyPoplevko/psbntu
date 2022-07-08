@@ -17,6 +17,6 @@ html::-webkit-scrollbar-thumb {
 
 @media (max-width: 1436px) {
     .content {
-        padding: 55px 0px 0px 0px;
+        padding: 15px 0px 0px 0px;
     }
 }
