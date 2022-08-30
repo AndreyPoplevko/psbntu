@@ -87,7 +87,7 @@
     color: #F77A52;
 }
 
-.auth-form input[type="submit"] {
+.auth-form input[type="button"] {
     width: 100%;
     padding: 0;
     line-height: 42px;
@@ -99,7 +99,7 @@
     cursor: pointer;
 }
 
-.auth-form input[type="submit"]:hover {
+.auth-form input[type="button"]:hover {
     opacity: 0.8;
 }
 

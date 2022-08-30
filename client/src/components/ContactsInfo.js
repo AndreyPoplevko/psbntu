@@ -12,7 +12,7 @@ import EDU_img from './images/EDU_img.jpg'
 import FPB_img from './images/FPB_img.jpg'
 import FAQ_img from './images/FAQ_img.jpg'
 
-import Avatar_img from '../pages/images/Avatar_img.jpg'
+import Avatar_img from '../pages/images/Avatar_img.png'
 
 const ContactsInfo = () => {
     const {user} = useContext(Context)

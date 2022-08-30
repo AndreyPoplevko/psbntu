@@ -1,0 +1,134 @@
+#ProfilakPageBody {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 60px;
+    left: 10%;
+    font-size: 25px;
+    line-height: 37px;
+    letter-spacing: 1.5px;
+}
+
+#ProfilakName {
+    letter-spacing: 1px;
+    margin-top: 50px;
+    font-size: 60px;
+}
+
+#ProfilakLocation {
+    border: 0;
+    margin-top: 50px;
+    width: 100%;
+}
+
+
+
+.rounded {
+    counter-reset: li; 
+    list-style: none; 
+    font: 14px;
+    padding: 0;
+}
+
+.rounded p {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    margin: .5em 0;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.rounded p:before {
+    color: white;
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -.3em;
+    top: 60%;
+    margin-top: -1.35em;
+    background: #08234b;
+    height: 2.2em;
+    width: 2.2em;
+    line-height: 1.7em;
+    border: .3em solid white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+table.profilak_costs {
+    text-decoration: none;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+table.profilak_costs th {
+    font-weight:normal;
+    font-size: 30px;
+    color:#ffffff;
+    background-color:#0f65a3;
+}
+
+table.profilak_costs td {
+    font-size: 23px;
+    color:#000000;
+}
+
+table.profilak_costs td,table.profilak_costs th {
+    white-space: pre-wrap;
+    padding: 10px 5px;
+    line-height: 30px;
+    vertical-align: middle;
+    border: 2px solid #0f65a3;
+}
+
+table.profilak_costs tr:hover {
+    background-color: #f9fafb
+}
+
+table.profilak_costs tr:hover td {
+    color:#000000;
+    cursor:default;
+}
+
+
+table.profilak_contacts {
+    text-decoration: none;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+table.profilak_contacts th {
+    font-weight: normal;
+    font-size: 03px;
+    color: #ffffff;
+    background-color: #0f65a3;
+}
+
+table.profilak_contacts td {
+    font-size: 23px;
+    color:#000000;
+}
+
+table.profilak_contacts td,table.profilak_contacts th {
+    white-space: pre-wrap;
+    padding: 10px 5px;
+    line-height: 30px;
+    vertical-align: middle;
+    border: 2px solid #0f65a3;
+}
+
+table.profilak_contacts tr:hover {
+    background-color: #f9fafb
+}
+
+table.profilak_contacts tr:hover td {
+    color:#000000;
+    cursor: default;
+}

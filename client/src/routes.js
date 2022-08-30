@@ -1,12 +1,17 @@
 import AboutPage from "./pages/AboutPage";
 import AuthPage from "./pages/AuthPage";
 import ContactsPage from './pages/ContactsPage';
+import FAQPage from "./pages/FAQPage";
 import GeneralScorePage from './pages/GeneralScorePage';
 import MainPage from './pages/MainPage';
+import MaterialHelpPage from "./pages/MaterialHelpPage";
 import NewsPage from './pages/NewsPage';
+import ProfilakPage from "./pages/ProfilakPage";
 import ProfilePage from './pages/ProfilePage';
 import SendMessagePage from './pages/SendMessagePage';
-import { AboutRoute, AuthRoute, ContactsRoute, GeneralScoreRoute, MainRoute, NewsRoute, ProfileRoute, RegistrationRoute, SendMessageRoute } from "./utils/consts";
+import SocialProtectionPage from "./pages/SocialProtectionPage";
+import WorkInComissionsPage from "./pages/WorkInComissionsPage";
+import { AboutRoute, AuthRoute, ContactsRoute, FAQRoute, GeneralScoreRoute, MainRoute, MaterialHelpRoute, NewsRoute, ProfilakRoute, ProfileRoute, RegistrationRoute, SendMessageRoute, SocialProtectionRoute, WorkInComissionsRoute } from "./utils/consts";
 
 export const authRoutes = [
     {
@@ -44,6 +49,26 @@ export const authRoutes = [
     {
         path: SendMessageRoute,
         Component: <SendMessagePage/>
+    },
+    {
+        path: ProfilakRoute,
+        Component: <ProfilakPage/>
+    },
+    {
+        path: SocialProtectionRoute,
+        Component: <SocialProtectionPage/>
+    },
+    {
+        path: WorkInComissionsRoute,
+        Component: <WorkInComissionsPage/>
+    },
+    {
+        path: MaterialHelpRoute,
+        Component: <MaterialHelpPage/>
+    },
+    {
+        path: FAQRoute,
+        Component: <FAQPage/>
     }
 ];
 
@@ -75,5 +100,25 @@ export const publicRoutes = [
     {
         path: SendMessageRoute,
         Component: <SendMessagePage/>
+    },
+    {
+        path: ProfilakRoute,
+        Component: <ProfilakPage/>
+    },
+    {
+        path: SocialProtectionRoute,
+        Component: <SocialProtectionPage/>
+    },
+    {
+        path: WorkInComissionsRoute,
+        Component: <WorkInComissionsPage/>
+    },
+    {
+        path: MaterialHelpRoute,
+        Component: <MaterialHelpPage/>
+    },
+    {
+        path: FAQRoute,
+        Component: <FAQPage/>
     }
 ];

@@ -16,7 +16,7 @@ const SendMessagePage = () => {
                         <input type='text' id='message' required autoComplete='off'/><label htmlFor='message'>Ваше сообщение</label>
                     </div>
                     <p>
-                        <input type='submit' value='ОТПРАВИТЬ'/>
+                        <input type='button' value='ОТПРАВИТЬ'/>
                     </p>
                 </form>
             </div>

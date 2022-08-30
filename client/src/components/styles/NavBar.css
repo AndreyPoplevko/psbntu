@@ -6,7 +6,6 @@
 *, *::before, *::after {
     padding: 0;
     margin: 0;
-    border: 0;
     box-sizing: border-box;
     font-family: Magistral;
 }
@@ -223,16 +222,16 @@ body.mouse .sub-header__list>li:hover .sub-sub-header__list {
     }
 
     #squares1 {
-        border-top-left-radius: 5px;
+        border-top-left-radius: 7px;
     }
     #squares2 {
-        border-top-right-radius: 5px;
+        border-top-right-radius: 7px;
     }
     #squares3 {
-        border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 7px;
     }
     #squares4 {
-        border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 7px;
     }
 
     .header__burger {
@@ -361,12 +360,6 @@ body.mouse .sub-header__list>li:hover .sub-sub-header__list {
     #header__list>li .sub-header__list.open li a {
         color: rgb(4, 22, 46);
     }
-
-
-
-
-
-
 
     #sub-sub-link {
         width: 163px;

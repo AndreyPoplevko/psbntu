@@ -29,8 +29,8 @@ const GeneralScorePage = () => {
   return ( 
       <div>
           <div id='GeneralScoreBody'> 
-              <table> 
-                <tbody> 
+              <table id='GeneralscoreTable'> 
+                <tbody id='GeneralscoreTBody'> 
                   <tr> 
                     <th>№</th> 
                     <th>Ф.И.О.</th> 

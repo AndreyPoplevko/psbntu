@@ -3,12 +3,8 @@ const ApiError = require('../error/ApiError.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const generateAuthJwt = (id, name, сategories, score, role) => {
-    return jwt.sign({id, name, сategories, score, role}, process.env.SECRET_KEY, {expiresIn: '24h'})
-}
-
-const generateLoginJwt = (id, name, сategories, score, role) => {
-    return jwt.sign({id, name, сategories, score, role}, process.env.SECRET_KEY, {expiresIn: '24h'})
+const generateJwt = (id, name, сategories, score, role) => {
+    return jwt.sign({id, name, сategories, score, role}, process.env.SECRET_KEY)
 }
 
 class UserController {
@@ -24,7 +20,7 @@ class UserController {
         }
         const hashPassword = await bcrypt.hash(password, 5);
         const user = await User.create({id, name, password: hashPassword, сategories, score, role});
-        const token = generateAuthJwt(id, name, сategories, score, role)
+        const token = generateJwt(id, name, сategories, score, role)
         return res.json({token});
     };
 
@@ -42,12 +38,12 @@ class UserController {
             return next(ApiError.internal('Указан неверный пароль!'))
         }
         console.log(user)
-        const token = generateLoginJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
+        const token = generateJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
         return res.json({token});
     };
 
     //async check(req, res, next) {
-    //    const token = generateAuthJwt(req.user.id, req.user.name, req.user.categories, req.user.score, req.user.role);
+    //    const token = generateJwt(req.user.id, req.user.name, req.user.categories, req.user.score, req.user.role);
     //    return res.json({token});
     //};
 
@@ -66,9 +62,16 @@ class UserController {
     
     async updateUser(req, res, next) {
         const {id} = req.body
-        const user = await User.findOne({where: {id}});
-        const token = generateAuthJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
-        return res.json({token});
+        if (id) {
+            const user = await User.findOne({where: {id}});
+            if (user) {
+                const token = generateJwt(id, user.dataValues.name, user.dataValues.categories, user.dataValues.score, user.dataValues.role);
+                return res.json({token});
+            }
+            else {
+                return res.json({})
+            }
+        }
     }
 
     async generalUsersScore(req, res, next) {

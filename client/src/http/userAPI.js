@@ -19,11 +19,15 @@ export const login = async(id, password) => {
 //    return jwt_decode(data.token)
 //}
 
+export const giveScore = async(id, updatedScore) => {
+    const {updatedUser} = await $authHost.post('api/user/giveScore', {id, updatedScore})
+    console.log(updatedUser)
+    return updatedUser.data
+}
+
 export const updateUser = async() => {
     const storageToken = localStorage.getItem('token');
-    console.log(storageToken)
     const {id} = jwt_decode(storageToken);
-    console.log(id)
     const {data} = await $host.post('api/user/updateUser', {id})
     localStorage.setItem('token', data.token)
     return jwt_decode(data.token)

@@ -6,7 +6,7 @@
     background: linear-gradient(60deg, #00b4fb, rgb(7, 34, 70));
 }
 
-table {
+#GeneralscoreTable {
     width: 700px;
     height: 70vh;
     font-size: 24px;
@@ -29,7 +29,7 @@ th {
 
 th, td {
     border-style: solid;
-    border-width: 0 1px 1px 0;
+    border-width: 1px 1px 1px 1px;
     border-color: rgb(0, 0, 0);
 }
 
@@ -43,7 +43,6 @@ th:first-child {
 
 th:last-child {
     border-top-right-radius: 10px;
-    border-right: none;
 }
 
 td {
@@ -59,12 +58,8 @@ tr:last-child td:last-child {
     border-radius: 0 0 10px 0;
 }
 
-tr td:last-child {
-    border-right: none;
-}
-
 @media (max-width: 880px) {
-    table {
+    #GeneralscoreTable {
         width: 90%;
         margin-top: 10%;
         font-size: 18px;
@@ -72,7 +67,7 @@ tr td:last-child {
 }
 
 @media (max-width: 600px) {
-    table {
+    #GeneralscoreTable {
         margin-top: 20%;
     }
 }

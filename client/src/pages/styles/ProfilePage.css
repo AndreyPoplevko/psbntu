@@ -1,4 +1,4 @@
-#ProfileBody {
+#ProfilePageBody {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,12 +55,15 @@
 
 #general_score_btn {
     margin-top: 250px;
-    background-color: white;
     border-radius: 15px;
-    width: 370px;
-    margin-left: 10px;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
     height: 50px;
     text-align: center;
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
 }
 
 #general_score_btn a{
@@ -72,17 +75,63 @@
     color: rgb(12, 12, 82);
 }
 
+.openModalScore {
+    margin-top: 20px;
+    border-radius: 15px;
+    width: 94%;
+    margin-left: 3%;
+    height: 50px;
+    border: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 26px;
+    color: rgb(12, 12, 82);
+    cursor: pointer;
+}
+
 @media (max-width: 1436px) {
     #profile {
         margin-top: -23%;
         margin-left: -48%;
-        height: 46%;
+        height: 55%;
         width: 96%;
+    }
+
+    #general_score_btn {
+        margin-top: 255px;
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
+        background: rgba(255, 255, 255, .2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+    }
+
+    .openModalScore {
+        margin-top: 20px;
+        border-radius: 15px;
+        width: 94%;
+        margin-left: 3%;
+        height: 50px;
+        text-align: center;
+        background: rgba(255, 255, 255, .2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+        font-weight: bold;
+        text-decoration: none;
+        line-height: 50px;
+        font-size: 26px;
+        color: rgb(12, 12, 82);
     }
 }
 
 @media (max-width: 640px) {
-    #ProfileBody {
+    #ProfilePageBody {
         position: absolute;
         top: 0;
         left: 0;
@@ -92,36 +141,78 @@
     }
 
     #profile {
-        margin-top: -45%;
+        margin-top: -51%;
         margin-left: -45%;
-        height: 70%;
+        height: 76%;
         width: 90%;
-    }
-    
-    #profile_info {
-        top: 200px;
-        left: 30px;
-        height: 38%;
-        width: inherit;
     }
     
     .profile_titles {
         margin-left: 0px;
     }
     
-    #general_score_btn {
-        margin-top: 430px;
-        width: 94%;
-    }
-    
     #general_score_btn a{
+        font-size: 20px;
+    }
+
+    #avatar_text {
+        margin-left: 170%;
+        margin-top: -120%;
+        font-size: 26px;
+    }
+
+    #profile_info {
+        top: 170px;
+        left: 30px;
+        height: 38%;
+        width: inherit;
+    }
+
+    #general_score_btn {
+        margin-top: 410px;
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
+        background: rgba(255, 255, 255, .2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+    }
+
+    .openModalScore {
         font-size: 20px;
     }
 }
 
 @media (max-width: 515px) {
     #profile {
-        margin-top: -55%;
-        height: 70%;
+        margin-top: -64%;
+        height: 76%;
+    }
+
+    #avatar_text {
+        margin-left: 205%;
+        margin-top: -150%;
+        font-size: 26px;
+    }
+
+    #profile_info {
+        top: 170px;
+        left: 30px;
+        height: 38%;
+        width: inherit;
+    }
+
+    #general_score_btn {
+        margin-top: 410px;
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
+        background: rgba(255, 255, 255, .2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+    }
+
+    .openModalScore {
+        font-size: 20px;
     }
 }

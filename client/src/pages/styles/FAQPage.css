@@ -1,0 +1,16 @@
+#FAQPageBody {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 100px;
+    left: 10%;
+    font-size: 25px;
+    line-height: 37px;
+    letter-spacing: 1.5px;
+}
+
+.answers {
+    text-indent: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

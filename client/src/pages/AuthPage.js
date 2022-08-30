@@ -28,6 +28,7 @@ const AuthPage = observer(() => {
             user.setUser(user);
             user.setIsAuth(true);
             history(MainRoute);
+            window.location.reload();
         } catch (e) {
             alert(e.response.data.message)
         }
@@ -36,25 +37,25 @@ const AuthPage = observer(() => {
     return (
         <div>
             <div id='auth-info'>
-                <p>...</p>
+                <p>Ты никогда не останешьсся один!</p>
             </div>
             <div id='AuthPageBody'>
                 {isLogin ?
                     <form className='auth-form'>
-                    <h3><b>Авторизация</b></h3>
-                    <div className='auth-form-row'>
-                        <input type='text' required autoComplete='off' value={id} onChange={e => setId(e.target.value)}/><label htmlFor='email'>Ваш № билета</label>
-                    </div>
-                    <div className='auth-form-row'>
-                        <input type='password' required autoComplete='off' value={password} onChange={e => setPassword(e.target.value)} typeof='password'/><label htmlFor='message'>Ваш пароль</label>
-                    </div>
-                        <input type='button' value='ВОЙТИ' onClick={() => {
-                            click()
-                            //user.setIsAuth(true)
-                            //window.location = '/'
-                        }}/>
-                        <p>Нет аккаунта? <Link to='/registration'>Зарегистрируйтесь!</Link></p>
-                </form>
+                        <h3><b>Авторизация</b></h3>
+                        <div className='auth-form-row'>
+                            <input type='text' required autoComplete='off' value={id} onChange={e => setId(e.target.value)}/><label htmlFor='email'>Ваш № билета</label>
+                        </div>
+                        <div className='auth-form-row'>
+                            <input type='password' required autoComplete='off' value={password} onChange={e => setPassword(e.target.value)} typeof='password'/><label htmlFor='message'>Ваш пароль</label>
+                        </div>
+                            <input type='button' value='ВОЙТИ' onClick={() => {
+                                click()
+                                //user.setIsAuth(true)
+                                //window.location = '/'
+                            }}/>
+                            <p>Нет аккаунта? <Link to='/registration'>Зарегистрируйтесь!</Link></p>
+                    </form>
                 :
                 <form className='auth-form'>
                     <h3><b>Регистрация</b></h3>

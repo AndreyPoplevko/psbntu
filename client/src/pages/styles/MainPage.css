@@ -12,7 +12,40 @@ html::-webkit-scrollbar-thumb {
 }
 
 .content {
-    padding: 65px 0px 0px 0px;
+    padding: 95px 0px 0px 0px;
+}
+
+#HeadContainer {
+    text-align: center;
+}
+
+#HeadContainerLogo {
+    width: 1000px;
+    height: 500px;
+}
+
+#HeadContainerText div {
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+#HeadContainerText hr {
+    margin: 21px auto 21px auto;
+    width: 90%;
+    height: 4px;
+    background-color: black;
+}
+
+#HeadContainerText i {
+    margin-top: 30px;
+    color: blue;
+    font-size: 50px;
+}
+
+#NewsText {
+    font-size: 28px;
+    margin-top: 15px;
+    margin-left: 10px;
 }
 
 @media (max-width: 1436px) {

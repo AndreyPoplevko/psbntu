@@ -1,60 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useContentful from '../contentful/useContentful';
 
 import './styles/NewsVidgets.css'
-import news_img from './images/news.jpg'
-import { Link } from 'react-router-dom';
+import ArticleCard from './ArticleCard';
 
 const NewsVidgets = () => {
+    const [articles, setArticles] = useState([]);
+    const { getArticles } = useContentful();
+
+    useEffect(() => {
+        getArticles().then((response) => setArticles(response))
+    })
+
     return (
         <div id='VidgetsBody'>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
-            <div className='News_Vidgets'>
-                <Link to='/'>
-                    <div className='img__hover'>
-                        <img src={news_img} className='News_Vidgets__img' alt="img"/>
-                    </div>
-                </Link>
-                <span className='News_Vidgets__text'>Первичная профсоюзная организация...</span>
-            </div>
+            {articles.map((article, index) =>  (
+                <ArticleCard key={index} article={article}/>
+            ))}
         </div>
     );
 };

@@ -1,23 +1,42 @@
-#SendMessagePageBody {
-    background-color: #9bd4ff;
-    height: 100vh;
+.modal {
+    height: 100%;
     width: 100%;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
 }
 
-.ui-form {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    max-width: 500px;
-    padding: 30px 30px 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -250px;
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
-.ui-form h3 {
+.modal__content {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    transform: scale(0.1);
+    transition: 0.5s all;
+}
+
+.modal__content.active {
+    transform: scale(1);
+}
+
+.modal-form {
+    margin-top: 10%;
+}
+
+.modal-form h3 {
     position: relative;
     z-index: 5;
     margin: 0 0 60px;
@@ -27,12 +46,12 @@
     font-weight: normal;
 }
 
- .form-row {
+.modal-form-row {
     position: relative;
     margin-bottom: 40px;
 }
 
-.form-row input {
+.modal-form-row input {
     font-size: 20px;
     display: block;
     width: 100%;
@@ -44,7 +63,7 @@
     transition: all 0.2s ease;
 }
 
-.form-row label {
+.modal-form-row label {
     position: absolute;
     left: 13px;
     color: #9d959d;
@@ -54,12 +73,12 @@
     transition: all 0.2s ease;
 }
 
-.form-row input:focus {
+.modal-form-row input:focus {
     outline: 0;
     border-color: #F77A52;
 }
 
-.form-row input:focus+label, .form-row input:valid+label {
+.modal-form-row input:focus+label, .modal-form-row input:valid+label {
     transform: translateY(-60px);
     margin-left: -14px;
     font-size: 14px;
@@ -69,7 +88,7 @@
     color: #F77A52;
 }
 
-.ui-form input[type="button"] {
+.modal-form input[type="button"] {
     width: 100%;
     padding: 0;
     line-height: 42px;
@@ -81,11 +100,6 @@
     cursor: pointer;
 }
 
-.ui-form input[type="button"]:hover {
+.modal-form input[type="button"]:hover {
     opacity: 0.8;
-}
-
-.ui-form p {
-    margin: 0;
-    padding-top: 10px;
 }

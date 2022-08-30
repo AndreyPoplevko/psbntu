@@ -8,6 +8,7 @@ const NavBar = () => {
     const [className, setClassName] = useState(false);
     const [classNameApp, setClassNameApp] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+
     useEffect(() => {
         document.body.classList.toggle('lock', isOpen);
     }, [isOpen]);
@@ -110,11 +111,11 @@ const NavBar = () => {
                 <div id="header__body">
                     <Link to='/'><img src={logo} id="header__logo" alt="img"/></Link>
                     <div className={`header__apps ${classNameApp ? 'active' : ''}`} onClick={() => setApp()}>
-                        <div class="AppsLogo">
-                            <div class="squares" id='squares1'></div>
-                            <div class="squares" id='squares2'></div>
-                            <div class="squares" id='squares3'></div>
-                            <div class="squares" id='squares4'></div>
+                        <div className="AppsLogo">
+                            <div className="squares" id='squares1'></div>
+                            <div className="squares" id='squares2'></div>
+                            <div className="squares" id='squares3'></div>
+                            <div className="squares" id='squares4'></div>
                         </div>
                     </div>
                     <div className={`header__burger ${className ? 'active' : ''}`} onClick={() => set()}>
@@ -123,7 +124,7 @@ const NavBar = () => {
                     <nav className={`header__menu ${className ? 'active' : ''}`}>
                         <ul id="header__list">
                             <li>
-                                <Link to='/about' className='header__link'>О нас</Link>
+                                <Link to='' className='header__link'>О нас</Link>
                                 <span className='header__arrow arrow' onClick={
                                     function(e) {
                                         let subMenu = e.target.nextElementSibling;
@@ -148,28 +149,16 @@ const NavBar = () => {
                                         <Link to='/about/structure' className='sub-header__link'>Структура</Link>
                                     </li>
                                     <li>
+                                        <Link to='/about/activities' className='sub-header__link'>Направления деятельности</Link>
+                                    </li>
+                                    <li>
                                         <Link to='/about/projects' className='sub-header__link'>Проекты</Link>
                                     </li>
                                     <li>
-                                        <Link to='/about/social_protection' className='sub-header__link'>Социальная защита</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/work_in_commisions' className='sub-header__link'>Участие в работе Советов и Комиссий</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/material_help' className='sub-header__link'>Материальная помощь</Link>
+                                        <Link to='/about/work_in_comissions' className='sub-header__link'>Участие в работе Советов и Комиссий</Link>
                                     </li>
                                     <li>
                                         <Link to='/about/seminars' className='sub-header__link'>Юридические и обучающие семинары</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/recovery' className='sub-header__link'>Организация оздоровления</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/summer_holidays' className='sub-header__link'>Организация летнего отдыха</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/employment' className='sub-header__link'>Организация трудоустройства</Link>
                                     </li>
                                     <li>
                                         <Link to='/about/events_organization' className='sub-header__link'>Организация и проведение мероприятий</Link>
@@ -178,37 +167,7 @@ const NavBar = () => {
                                         <Link to='/about/new_year_gifts' className='sub-header__link'>Обеспечение новогодними подарками</Link>
                                     </li>
                                     <li>
-                                        <Link to='/about/improve_soc-eco_situation' className='sub-header__link'>Улучшение социально-экономического положения</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/sales' className='sub-header__link'>Предоставление скидок</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/accomodation' className='sub-header__link'>Предоставление мест проживания</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about/profilak' className='sub-header__link' id='sub-sub-link'>Профилакторий</Link>
-                                        <span className='header__arrow arrow' onClick={
-                                            function(e) {
-                                                let subSubMenu = e.target.nextElementSibling;
-                                                subSubMenu.classList.toggle('open');
-                                                e.target.classList.toggle('active');
-                                            }
-                                        }></span>
-                                        <ul className='sub-sub-header__list'>
-                                            <li>
-                                                <Link to='/about/profilak/structure' className='sub-sub-header__link'>Структура</Link>
-                                            </li>
-                                            <li>
-                                                <Link to='/about/profilak/main_directions' className='sub-sub-header__link'>Основные направления</Link>
-                                            </li>
-                                            <li>
-                                                <Link to='/about/profilak/awards' className='sub-sub-header__link'>Награды</Link>
-                                            </li>
-                                            <li>
-                                                <Link to='/about/profilak/charter' className='sub-sub-header__link'>Устав</Link>
-                                            </li>
-                                        </ul>
+                                        <Link to='/about/sales' className='sub-header__link'>Предоставление скидок со сформированной стоимости обучения</Link>
                                     </li>
                                 </ul>
                             </li>
@@ -216,7 +175,7 @@ const NavBar = () => {
                                 <Link to='/news' className='header__link'>Новости</Link>
                             </li>
                             <li>
-                                <Link to='/social_protection' className='header__link'>Соц. защита</Link>
+                                <Link to='/social_protection' className='header__link'>Социальная защита</Link>
                                 <span className='header__arrow arrow' onClick={
                                     function(e) {
                                         let subMenu = e.target.nextElementSibling;
@@ -238,7 +197,7 @@ const NavBar = () => {
                                 }></span>
                                 <ul className='sub-header__list'>
                                     <li>
-                                        <Link to='/social_protection/social_scholarship' className='sub-header__link'>Соц. стипендия</Link>
+                                        <Link to='/social_protection/social_scholarship' className='sub-header__link'>Социальная стипендия</Link>
                                     </li>
                                     <li>
                                         <Link to='/social_protection/accomodation' className='sub-header__link'>Вопрос с жильём</Link>
@@ -247,7 +206,13 @@ const NavBar = () => {
                                         <Link to='/social_protection/material_help' className='sub-header__link'>Материальная помощь</Link>
                                     </li>
                                     <li>
+                                        <Link to='/social_protection/improve_soc-eco_situation' className='sub-header__link'>Улучшение социально-экономического положения</Link>
+                                    </li>
+                                    <li>
                                         <Link to='/social_protection/how_to_get_room' className='sub-header__link'>Как получить место в общежитии</Link>
+                                    </li>
+                                    <li>
+                                        <Link to='/social_protection/accomodation' className='sub-header__link'>Предоставление мест проживания</Link>
                                     </li>
                                 </ul>
                             </li>
@@ -258,7 +223,7 @@ const NavBar = () => {
                                 <Link to='/for_applicant' className='header__link'>Абитуриенту</Link>
                             </li>
                             <li>
-                                <Link to='/recovery' className='header__link'>Оздоровление</Link>
+                                <Link to='' className='header__link'>Оздоровление</Link>
                                 <span className='header__arrow arrow' onClick={
                                     function(e) {
                                         let subMenu = e.target.nextElementSibling;
@@ -291,7 +256,7 @@ const NavBar = () => {
                                 <Link to='/events' className='header__link'>Мероприятия</Link>
                             </li>
                             <li>
-                                <Link to='/vacancies' className='header__link'>Вакансии</Link>
+                                <Link to='' className='header__link'>Вакансии</Link>
                                 <span className='header__arrow arrow' onClick={
                                     function(e) {
                                         let subMenu = e.target.nextElementSibling;
@@ -313,6 +278,9 @@ const NavBar = () => {
                                 }></span>
                                 <ul className='sub-header__list'>
                                     <li>
+                                        <Link to='/vacancies/employment' className='sub-header__link'>Организация трудоустройства</Link>
+                                    </li>
+                                    <li>
                                         <Link to='/vacancies/for_employers' className='sub-header__link'>Работодателям</Link>
                                     </li>
                                     <li>
@@ -324,34 +292,7 @@ const NavBar = () => {
                                 <Link to='/discount' className='header__link'>Дисконтная программа</Link>
                             </li>
                             <li>
-                                <Link to='/good_to_know' className='header__link'>Полезно знать</Link>
-                                <span className='header__arrow arrow' onClick={
-                                    function(e) {
-                                        let subMenu = e.target.nextElementSibling;
-                                        subMenu.classList.toggle('open');
-                                        e.target.classList.toggle('active');
-                                        let arrows = document.querySelectorAll('.arrow');
-                                        let subMenus = document.querySelectorAll('.sub-header__list');
-                                        arrows[0].classList.remove('active');
-                                        arrows[1].classList.remove('active');
-                                        arrows[2].classList.remove('active');
-                                        arrows[3].classList.remove('active');
-                                        arrows[4].classList.remove('active');
-                                        subMenus[0].classList.remove('open');
-                                        subMenus[1].classList.remove('open');
-                                        subMenus[2].classList.remove('open');
-                                        subMenus[3].classList.remove('open');
-                                        document.getElementsByClassName('sub-sub-header__list')[0].classList.remove('open');
-                                    }
-                                }></span>
-                                <ul className='sub-header__list'>
-                                    <li>
-                                        <Link to='/good_to_know/documents' className='sub-header__link'>Документы</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/good_to_know/material_help' className='sub-header__link'>Материальная помощь</Link>
-                                    </li>
-                                </ul>
+                                <Link to='/documents' className='header__link'>Документы</Link>
                             </li>
                             <li>
                                 <Link to='/contacts' className='header__link'>Контакты</Link>

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Context } from '..';
 import MainPage from '../pages/MainPage';
 import { authRoutes, publicRoutes } from '../routes';
+import ArticlePage from './ArticlePage';
 
 const AppRouter = () => {
     const {user} = useContext(Context);
@@ -18,6 +19,7 @@ const AppRouter = () => {
                         <Route key={path} path={path} element={Component} exact/>
                     )
                 }
+                <Route path={`/news/:slug`} element={<ArticlePage/>}/>
                 <Route path='*' element={<MainPage/>}/>
             </Routes>
         </div>
